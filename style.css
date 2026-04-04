@@ -1,0 +1,574 @@
+h1{
+    font-family: 'Bowlby One SC',sans-serif;
+    text-align: center;
+    margin-top: 40px ;
+    font-size: 64px;
+    margin-bottom: 5px;
+    margin: 0 0 10px 0;
+    color:white
+}
+h2{
+    font-family: 'Changa one',sans-serif;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    color:white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width:fit-content;
+
+}
+p{
+    font-family: 'Bowlby One SC',sans-serif;
+    text-align: center;
+    margin-top: 5px ;
+    font-size: 20px;
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 1px;
+}
+header {
+  width: fit-content;
+  margin: 60px auto 0 auto;
+  padding: 30px 50px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  text-align: center;
+}
+body{
+    background-color:black;
+    overflow-x:hidden;
+}
+
+.menu li{
+     font-family: 'Bowlby One SC',sans-serif;
+     color: white;
+}
+.menu li.active{
+    background-color: rgba(255,255,255,0.2);
+    padding: 8px 15px;
+    border-radius: 15px;
+}
+.menu a{
+    text-decoration: none;
+}
+.menu input[type=text]{
+    border-radius: 30px;
+    background: white;
+    width:250px;
+    margin:0;
+
+}
+.menu i{
+    color:white;
+    font-size:20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.bi-search{
+    color:white;
+    font-size:18px;
+    background:rgba(255,255,255,0.2);
+    padding:8px;
+    border-radius: 50%;
+}
+.menu{
+    display:flex;
+    justify-content: center;
+    gap: 20px;
+    list-style:none;
+    padding:15px 30px;
+    background: rgba(255,255,255,0.1);
+    border-radius:30px;
+    backdrop-filter: blur(10px);
+    width:fit-content;
+    margin:20px auto;
+    
+}
+.menu li:hover{
+    color:yellow;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    transform: scale(1.1);
+    background-color: aqua;
+    padding:8px 15px;
+    border-radius: 15px;
+}
+.movies{
+    display:flex;
+    gap: 30px;
+    margin-top:40px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style:none;
+    overflow-y: hidden;
+}
+.movies::-webkit-scrollbar{
+    width:0px;
+    height:0px;
+}
+.card img{
+    width:200px;
+    border-radius: 10px;
+}
+.card img:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+.card h3{
+    color:white;
+    font-family: 'Changa one',sans-serif;
+
+}
+.row-wrapper{
+    position: relative;
+}
+
+.arrow
+{
+    position:absolute;
+    top:30%;
+    transform:translateY(-50%);
+    font-size:22px;
+    width:40px;
+    height:60px;
+    background: rgba(0,0,0,0.6);
+    color:white;
+    border:none;
+    border-radius: 50%;
+    cursor:pointer;
+    z-index: 10px;
+}
+.right{
+    right:10px;
+
+}
+.left{
+    left:-10px;
+}
+h6{
+    color:black;
+    text-align:center;
+}
+footer{
+    background-color: rgb(140, 140, 140);
+    backdrop-filter: blur(10px) ;
+        border-radius: 30px;
+}
+.arrow:hover{
+    background: #00e0f0;
+    transform:translateY(-50%) scale(1.1);
+}
+.card button{
+    font-family: 'Bowlby One SC',sans-serif;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    color:white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.card button:hover{
+    color:yellow;
+    cursor:pointer;
+}
+.card{
+    flex:0 0 auto;
+}
+.book-btn{
+    background-color: #00bcd4;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius: 20px;
+    cursor:pointer;
+    font-family: 'Bowlby One SC',sans-serif;
+}
+.book-btn:hover{
+    background-color:#0097a7;
+}
+h2.h21{
+    font-family: 'Bowlby One SC',sans-serif;
+    background:#0097a7;
+    backdrop-filter: blur(10px);
+    color:white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor:default;
+    text-align: center;
+    margin:0 auto;
+}
+.login-page{
+    justify-content: center;
+    align-items: center;
+    background: rgba(178, 154, 154, 0.1);
+    border-radius:30px;
+    backdrop-filter: blur(10px);
+    width:600px;
+    margin:20px auto;
+    
+}
+.login-page input[type=email]{
+    width : 250px;
+    border-radius: 30px;
+    padding:10px;
+    border: none;
+}
+h4{
+    font-family: 'Bowlby One SC',sans-serif;
+}
+.input-box label {
+    min-width: 80px;
+    font-family: 'Bowlby One SC',sans-serif;
+    color: white;
+
+    
+}
+.input-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+.login-page input[type=password]{
+    width : 250px;
+    border-radius: 30px;
+    padding:10px;
+    border: none;
+}
+button{
+    display: block;
+    background-color: #00bcd4;
+    color:white;
+    border:none;
+    border-radius: 20px;
+    cursor:pointer;
+    font-family: 'Bowlby One SC',sans-serif;
+    
+    margin: 30px auto;
+    padding:10px 13px
+}
+button:hover{
+    background-color:#0097a7;
+    color:yellow
+
+}
+.logo img{
+    display: flex;
+    width:140px;
+    position: absolute;
+    top:30%;
+    border-radius: 30px;
+    left:45%;
+    
+    
+}
+.createaccount a{
+    color:aqua;
+    position:absolute;
+    bottom:15px;
+    left:20px;
+
+}
+.forgot a{
+    color:aqua;
+    position:absolute;
+    bottom:15px;
+    right:20px
+}
+.poster{
+    position:fixed;
+    width:250px;
+    height:350px;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    filter:blur(6px);
+    z-index: -1;
+    animation: float 6s ease-in-out infinite;
+
+}
+.poster1{
+    top:10%;
+    left:5%;
+    background-image: url(inception.jpg);
+}
+.poster2{
+    top:50%;
+    right:10%;
+    background-image: url(premam.jpg);
+}
+.poster3{
+    bottom: 5%;
+    left:10%;
+    background-image: url(lokah.jpg);
+}
+.poster4{
+    top:5%;
+    right:40%;
+    background-image: url(marco.jpg);
+}
+.poster5{
+    top:5%;
+    right :60%;
+    background-image: url(3idiots.jpg);
+}
+.poster6{
+    top:5%;
+    right:20%;
+    background-image: url(ustad\ hotel.jpg);
+}
+.poster7{
+    bottom:5%;
+    right:50%;
+    background-image: url(darknight.jpg);
+}
+.poster8{
+    bottom:5%;
+    right:30%;
+    background-image: url(jabwemet.jpg);
+}
+.poster9{
+    top:5%;
+    right: 2%;
+    background-image: url(znmd.jpg);
+     
+}
+.seats{
+    width: fit-content;
+    margin: 10px auto;
+}
+
+.Rate{
+    font-family: 'Changa one',sans-serif;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: left;
+    text-shadow: none;
+    color:gold;
+}
+
+.seat-containerp,
+.seat-containerg{
+    display: grid;
+    grid-template-columns: repeat(10, 25px);
+    gap: 10px;
+}
+
+.seatp, .seatg{
+    font-family: 'Courier New', Courier, monospace;
+    width: 25px;
+    height: 25px;
+    background: white;
+    color: black;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: small;
+}
+.seatp:hover{
+    background-color: greenyellow;
+    color:black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.seatg:hover{
+    background-color: greenyellow;
+    color:black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.layout{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    border-style: solid;
+    border-color: wheat;
+    
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter:blur(6px);
+}
+.column p{
+    font-family: 'Changa one',sans-serif;
+    margin-top: 5px ;
+    font-size: 25px;
+    color: white;
+
+}
+.row-layout{
+    display: flex;      
+    align-items: center;
+    gap: 20px;
+}
+.screen{
+    margin: 10px auto;
+    color:gray;
+    font-family: "Doto",sans-serif;
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 50px solid #91e3ef;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	height: 0;
+	width: 500px;
+    align-items: center;
+    justify-content: center;
+}
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-btn {
+    width: 28px;
+    height: 28px;
+    fill: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    fill: #00e0f0;
+    transform: scale(1.2);
+}
+.date-btn{
+    display: flex;
+    flex-direction: column;
+    background:black;
+    cursor: pointer;
+    justify-content: center;
+    margin: 0;
+    border-style:solid;
+    color: white;
+    padding:10px 15px;
+}
+.date-btn.active {
+  background:black;
+  border-color: yellow;
+}
+
+#showtimes-pvr button.active {
+  background: #e50914;
+  color: white;
+}
+.day{
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+}
+
+.month{
+    font-size: 12px;
+    color:white;
+}
+
+.date{
+    display:none;
+    gap:15px;
+    background-color:rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+    padding: 5px 20px;
+    width:fit-content;
+    border-style: solid;
+    color: white;
+    
+
+}
+#showtimes button{
+  margin-top: 20px;
+  display: flex;
+  gap: 1px;
+  justify-content: flex-start;
+  padding-left: 2px;
+  margin:2px;
+  color:black;
+  padding:6px 12px;
+  font-size: 15px;
+}
+.date-btn:hover {
+    background: black;
+    transform: scale(1.05);
+    
+}
+
+.theatrecard img{
+    width:30px;
+    border-style: solid;
+}
+.theatrecard{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color:rgba(255,255,255,0.1);
+    font-family: 'Changa one',sans-serif;
+    padding-left: 5px;
+    font-size: 25px;
+    border-style: solid;
+    color:white;
+    justify-content: space-between;
+    padding: 15px 20px;
+    cursor: pointer;
+
+}
+.theatrecard:hover{
+    background: lightgray;
+    color:black;
+}
+.theatrecard.selected{
+    background-color: lightgray;
+    color:black;
+}
+a{
+    text-decoration: none;
+}
+.ino{
+    color:rgb(85, 12, 169);
+    border-color: white;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.right {
+  display: flex;
+  gap: 10px;
+  margin-left: 5px;
+}
+.time-btn {
+    background: black;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin: 1px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.time-btn:hover {
+    background: white;
+    color: black;
+    border-color: black;
+}
+
+.time-btn.active {
+    background: aqua;
+    color: black;
+}
