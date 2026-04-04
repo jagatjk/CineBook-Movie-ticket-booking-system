@@ -296,47 +296,47 @@ button:hover{
 .poster1{
     top:10%;
     left:5%;
-    background-image: url(inception.jpg);
+    background-image: url(Images/inception.jpg);
 }
 .poster2{
     top:50%;
     right:10%;
-    background-image: url(premam.jpg);
+    background-image: url(Images/premam.jpg);
 }
 .poster3{
     bottom: 5%;
     left:10%;
-    background-image: url(lokah.jpg);
+    background-image: url(Images/lokah.jpg);
 }
 .poster4{
     top:5%;
     right:40%;
-    background-image: url(marco.jpg);
+    background-image: url(Images/marco.jpg);
 }
 .poster5{
     top:5%;
     right :60%;
-    background-image: url(3idiots.jpg);
+    background-image: url(Images/3idiots.jpg);
 }
 .poster6{
     top:5%;
     right:20%;
-    background-image: url(ustad\ hotel.jpg);
+    background-image: url(Images/ustad\ hotel.jpg);
 }
 .poster7{
     bottom:5%;
     right:50%;
-    background-image: url(darknight.jpg);
+    background-image: url(Images/darknight.jpg);
 }
 .poster8{
     bottom:5%;
     right:30%;
-    background-image: url(jabwemet.jpg);
+    background-image: url(Images/jabwemet.jpg);
 }
 .poster9{
     top:5%;
     right: 2%;
-    background-image: url(znmd.jpg);
+    background-image: url(Images/znmd.jpg);
      
 }
 .seats{
