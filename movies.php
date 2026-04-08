@@ -1,0 +1,276 @@
+<?php
+include 'config/db.php';
+
+$search = $_GET['search'] ?? '';
+
+if (!empty($search)) {
+    $result = $conn->query("SELECT * FROM movies WHERE title LIKE '%$search%'");
+} else {
+    $result = $conn->query("SELECT * FROM movies");
+}
+?>
+<html>
+    <head>
+       <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Changa+One:ital@0;1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+        <title>CINEBOOK | Movies</title>
+        <link rel="icon" type="image/png" href="icon.png">
+    </head>
+     <body>
+        <h1>CINEBOOK</h1>
+        <ul class="menu">
+            <a href="index.php"><li>Home</li></a>
+            <a href="movies.php"><li class="active">Movies</li></a>
+            <a href="theatres.php"><li>Theatres</li></a>
+            <a href="login.php"><li>Login</li></a>
+            <form method="GET" action="movies.php" class="search-box">
+                <i class="bi bi-search"></i>
+                <input type="text" name="search" placeholder="Search" required>
+            </form>
+        </ul>
+        <?php if (!empty($search)) { ?>
+
+    <h2 class="resul">Search Results for "<?php echo htmlspecialchars($search); ?>"</h2>
+
+    <div class="movies">
+        <?php if ($result->num_rows > 0) { ?>
+            
+            <?php while($row = $result->fetch_assoc()) { ?>
+                
+                <div class="card">
+                    <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                        <img src="Images/<?php echo $row['image']; ?>">
+                    </a>
+
+                    <h3><?php echo $row['title']; ?></h3>
+
+                    <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                        <button>Book now</button>
+                    </a>
+                </div>
+
+            <?php } ?>
+
+        <?php } else { ?>
+            <p class="resul">No Results Found</p>
+        <?php } ?>
+    </div>
+
+    <hr>
+
+<?php } ?>
+        <h2>English</h2>
+        <div class="row-wrapper">
+            <button class="arrow left" id="leftArrow">‹</button>
+                <div class="movies" id="movieRow">
+                    <div class="card">
+                        <img src="Images/interstellar.jpg">
+                        <h3>Interstellar</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/inception.jpg">
+                        <h3>Inception</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/darknight.jpg">
+                        <h3>The Dark Night</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/dps.jpg">
+                        <h3>Dead Poets<br>Society</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/fightclub.jpg">
+                        <h3>Fight club</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/joker.jpg">
+                        <h3>Joker</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/avatar.jpg">
+                        <h3>Avatar</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                </div>
+            <button class="arrow right" id="rightArrow">›</button>
+        </div> 
+
+        <br>
+        <hr>
+
+        <h2>Malayalam</h2>
+        <div class="row-wrapper">
+            <button class="arrow left" id="leftArrow">‹</button>
+                <div class="movies" id="movieRow">
+                    <div class="card">
+                        <img src="Images/marco.jpg">
+                        <h3>Marco</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/ustadhotel.jpg">
+                        <h3>Ustad Hotel</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/premam.jpg">
+                        <h3>Premam</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/eko.jpg">
+                        <h3>Eko</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/bangloredays.jpg">
+                        <h3>Banglore Days</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/lokah.jpg">
+                        <h3>Lokah</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/Joji.jpg">
+                        <h3>joji</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/kireedam.jpg">
+                        <h3>Kireedam</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/thallumala.jpg">
+                        <h3>Thallumaala</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                </div>
+            <button class="arrow right" id="rightArrow">›</button>
+        </div> 
+        <br>
+        <hr>
+
+        <h2>Tamil</h2>
+        <div class="row-wrapper">
+            <button class="arrow left" id="leftArrow">‹</button>
+                <div class="movies" id="movieRow">
+                    <div class="card">
+                        <img src="Images/vikram.jpg">
+                        <h3>Vikram</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/sooraraipotru.jpg">
+                        <h3>Soorarai Pottru</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/leo.jpg">
+                        <h3>Leo</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/jailer.jpg">
+                        <h3>Jailer</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/96.jpg">
+                        <h3>'96</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/paiyaa.jpg">
+                        <h3>Paiyaa</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                </div>
+            <button class="arrow right" id="rightArrow">›</button>
+        </div> 
+
+        <br>
+        <hr>
+
+        <h2>Telugu</h2>
+        <div class="row-wrapper">
+            <button class="arrow left" id="leftArrow">‹</button> 
+                <div class="movies" id="movieRow">
+                    <div class="card">
+                        <img src="Images/thegirlfiend.jpg">
+                        <h3>The Girlfriend</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                </div>
+            <button class="arrow right" id="rightArrow">›</button>
+        </div>    
+        <br>
+        <hr>
+    
+        <h2>Hindi</h2>
+        <div class="row-wrapper">
+            <button class="arrow left" id="leftArrow">‹</button>
+                <div class="movies" id="movieRow">
+                    <div class="card">
+                        <img src="Images/3idiots.jpg">
+                        <h3>3 Idiots</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/jabwemet.jpg">
+                        <h3>Jab We Met</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/znmd.jpg">
+                        <h3>Zindagi Na Milegi<br> Dobara</h3>
+                       <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+                    <div class="card">
+                        <img src="Images/wakeupsid.jpg">
+                        <h3>Wake up Sid</h3>
+                        <a href="theatres.php?movie_id=<?php echo $row['id']; ?>">
+                    </div>
+
+                </div>
+            <button class="arrow right" id="rightArrow">›</button>
+        </div>
+        <br>
+        <hr>
+         <div class="poster poster1"></div>
+        <div class="poster poster2"></div>
+        <div class="poster poster3"></div>
+        <div class="poster poster4"></div>
+        <div class="poster poster5"></div>
+        <div class="poster poster6"></div>
+        <div class="poster poster7"></div>
+        <div class="poster poster8"></div>
+        <div class="poster poster9"></div>
+        <div class="poster poster10"></div>
+        <script>
+            const rows=document.querySelectorAll(".row-wrapper");
+            rows.forEach(wrapper=>{
+                const row=wrapper.querySelector(".movies");
+                const left=wrapper.querySelector(".left");
+                const right=wrapper.querySelector(".right");
+
+                right.addEventListener("click",()=>{
+                    row.scrollBy({left:600,behavior:"smooth"});
+                });
+                left.addEventListener("click",()=>{
+                    row.scrollBy({ left:-600,behavior:"smooth"});
+                });
+            });
+        </script>
+    </body>
+</html>

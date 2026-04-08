@@ -1,23 +1,40 @@
+<?php
+include 'config/db.php';
+
+if (!isset($_GET['movie_id'])) {
+    die("No movie selected");
+}
+$movie_id = $_GET['movie_id'];
+$movie = $conn->query("SELECT * FROM movies WHERE id=$movie_id")->fetch_assoc();
+$shows = $conn->query("SELECT * FROM shows WHERE movie_id=$movie_id");
+
+$data = [];
+while($row = $shows->fetch_assoc()) {
+$data[] = $row;
+}
+
+
+?>
 <html>
     <head>
-        <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Changa+One:ital@0;1&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Changa+One:ital@0;1&family=Doto:wght@100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
         <link rel="icon" type="image/png" href="Images/icon.png">
     </head>
-     <body>
+    <body>
+        
         <h1>CINEBOOK</h1>
         <ul class="menu">
-            <a href="index.html"><li>Home</li></a>
-            <a href="movies.html"><li>Movies</li></a>
-            <a href="theatres.html"><li class="active">Theatres</li></a>
-            <a href="login.html"><li>Login</li></a>
-            <i class="bi bi-search"></i>
-            <input type="text" placeholder="Search">
+            <a href="index.php"><li>Home</li></a>
+            <a href="movies.php"><li>Movies</li></a>
+            <a href="theatres.php"><li class="active">Theatres</li></a>
+            <a href="login.php"><li>Login</li></a>
         </ul>
+        <h2 class="movietitle"><?php echo $movie['title']; ?></h2>
         
         
-        <div class="date" onclick="showdates()">
+        <div class="date">
             <button class="date-btn" onclick="selectDate(this,'06')">
                 <span class="day">06</span>
                 <span class="month">April</span>
@@ -67,6 +84,13 @@
                 </div>
                 <div class="right" id="showtimes-cinepolis"></div>
             </div>
+            <hr>
+            <div class="theatrecard cine" onclick="selectTheatre(this,'CINEMA CITY')">
+                <div class="left">
+                    <img src=Images/cinemacity.jpg><h3>CINEMA CITY</h3>
+                </div>
+                <div class="right" id="showtimes-cinemacity"></div>
+            </div>
         </div>
 
         <div class="poster poster1"></div>
@@ -82,25 +106,10 @@
     </body>
     <script>
         let selectedTheatre = "";
-        const showtimeData = {
-            "06": ["10:00 AM", "2:00 PM"],
-            "07": ["11:00 AM", "3:00 PM"],
-            "08": ["4:15 PM", "10:45 PM"],
-            "09":["11:00 AM","2:15 PM","6:15 PM"],
-            "10":["01:00 PM","8:30 PM"],
-            "11":["10:45 AM","4:45 PM","10:15 PM"]
-        };
-
-        function selectDate(button, date) {
-            document.querySelectorAll(".date-btn").forEach(btn => {
-                btn.classList.remove("active");
-            });
-
-            button.classList.add("active");
-            showtimes(date);
-        }
-        function showtimes(date) {
-
+        let showsFromDB = <?php echo json_encode($data); ?>;
+        console.log(showsFromDB);
+       function showtimes(date) 
+       {
             if (!selectedTheatre) {
                 alert("Select a theatre first");
                 return;
@@ -112,28 +121,45 @@
 
             container.innerHTML = "";
 
-            if (!showtimeData[date]) return;
+            const theatreMap = {
+                "PVR": 1,
+                "INOX": 2,
+                "CINEPOLIS": 3,
+                "CINEMA CITY":4
+            };
 
-            showtimeData[date].forEach(time => {
+            const filteredShows = showsFromDB.filter(show => {
+                return show.show_date.split("-")[2] === date &&
+                    show.theatre_id == theatreMap[selectedTheatre];
+            });
+
+            console.log("Filtered shows:", filteredShows);
+
+            filteredShows.forEach(show => {
                 const btn = document.createElement("button");
                 btn.classList.add("time-btn");
-        
-            btn.innerText = time;
+
+                btn.innerText = show.show_time.substring(0,5);
 
                 btn.onclick = function () {
-                    container.querySelectorAll("button").forEach(b => {
-                        b.classList.remove("active");
-                    });
-                    btn.classList.add("active");
-                };
-                btn.onclick = function () {
-                    window.location.href = "booking.html";
+                    window.location.href = "booking.php?show_id=" + show.id;
                 };
 
                 container.appendChild(btn);
             });
         }
+
+        function selectDate(button, date) {
+            console.log("Clicked date:", date);
+            document.querySelectorAll(".date-btn").forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+            showtimes(date);
+        }
         function selectTheatre(element, theatre) {
+            
             selectedTheatre = theatre;
 
             document.querySelectorAll(".theatrecard").forEach(card => {

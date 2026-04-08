@@ -40,10 +40,12 @@ body{
     background-color:black;
     overflow-x:hidden;
 }
-
+.resul{
+    font-family: "Changa one",sans-serif;
+}
 .menu li{
-     font-family: 'Bowlby One SC',sans-serif;
-     color: white;
+    font-family: 'Bowlby One SC',sans-serif;
+    color: white;
 }
 .menu li.active{
     background-color: rgba(255,255,255,0.2);
@@ -53,11 +55,12 @@ body{
 .menu a{
     text-decoration: none;
 }
-.menu input[type=text]{
+.search-box[type=text]{
     border-radius: 30px;
     background: white;
     width:250px;
     margin:0;
+    border-radius: 10px;
 
 }
 .menu i{
@@ -87,11 +90,11 @@ body{
     
 }
 .menu li:hover{
-    color:yellow;
+    color:black;
     cursor: pointer;
     transition: 0.1s ease-in;
     transform: scale(1.1);
-    background-color: aqua;
+    background-color:lightgray;
     padding:8px 15px;
     border-radius: 15px;
 }
@@ -159,7 +162,7 @@ footer{
         border-radius: 30px;
 }
 .arrow:hover{
-    background: #00e0f0;
+    background:lightgray;
     transform:translateY(-50%) scale(1.1);
 }
 .card button{
@@ -173,15 +176,15 @@ footer{
     cursor: pointer;
 }
 .card button:hover{
-    color:yellow;
+    color:black;
     cursor:pointer;
 }
 .card{
     flex:0 0 auto;
 }
 .book-btn{
-    background-color: #00bcd4;
-    color:white;
+    background-color:lightgray;
+    color:black;
     border:none;
     padding:10px 20px;
     border-radius: 20px;
@@ -189,13 +192,13 @@ footer{
     font-family: 'Bowlby One SC',sans-serif;
 }
 .book-btn:hover{
-    background-color:#0097a7;
+    background-color:lightgray;
 }
 h2.h21{
     font-family: 'Bowlby One SC',sans-serif;
-    background:#0097a7;
+    background:lightgray;
     backdrop-filter: blur(10px);
-    color:white;
+    color:black;
     border: none;
     padding: 10px;
     border-radius: 10px;
@@ -243,8 +246,8 @@ h4{
 }
 button{
     display: block;
-    background-color: #00bcd4;
-    color:white;
+    background-color:lightgray;
+    color:black;
     border:none;
     border-radius: 20px;
     cursor:pointer;
@@ -254,8 +257,8 @@ button{
     padding:10px 13px
 }
 button:hover{
-    background-color:#0097a7;
-    color:yellow
+    background-color:lightgray;
+    color:black;
 
 }
 .logo img{
@@ -370,7 +373,8 @@ button:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: small;
+    font-size: small; 
+    transition: 0.2s;
 }
 .seatp:hover{
     background-color: greenyellow;
@@ -392,6 +396,26 @@ button:hover{
     border-style: solid;
     border-color: wheat;
     
+}
+
+.seatg.selected {
+    background-color: limegreen;
+    color: black;
+}
+.seatp.selected {
+    background-color: limegreen;
+    color: black;
+}
+
+.seatg.booked {
+    background-color: red;
+    pointer-events: none;
+    opacity: 0.6;
+}
+.seatp.booked{
+     background-color: red;
+    pointer-events: none;
+    opacity: 0.6;
 }
 .column{
     display: flex;
@@ -458,6 +482,8 @@ button:hover{
 .date-btn.active {
   background:black;
   border-color: yellow;
+  transform: scale(1.05);
+  transition: 0.2s ease;
 }
 
 #showtimes-pvr button.active {
@@ -530,11 +556,20 @@ button:hover{
 .theatrecard.selected{
     background-color: lightgray;
     color:black;
+    border-color:black;
+    border-width: 5px;
+    transform: scale(1.03);
+    transition: 0.2s ease;
 }
 a{
     text-decoration: none;
 }
 .ino{
+    color:rgb(85, 12, 169);
+    border-color: white;
+}
+
+.cine{
     color:rgb(85, 12, 169);
     border-color: white;
 }
@@ -571,4 +606,52 @@ a{
 .time-btn.active {
     background: aqua;
     color: black;
+}
+.movietitle {
+    position: sticky;
+    top: 80px;
+
+    font-family: "Bowlby One SC", sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.seatbooking{
+    font-family: "Changa one",sans-serif;
+    background-color: lightgray;
+    color: black;
+}
+.createacc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+
+    background: rgba(0,0,0,0.6);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+.createacc input::placeholder {
+    color: #ccc;
+}
+.incre{
+    border-radius: 10px;
+    height: 40px;
+    width:400px;
+}
+h4{
+    color:white;
 }
